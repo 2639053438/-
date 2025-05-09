@@ -1,0 +1,13 @@
+1、在学校服务器上连不上网，上不了网。
+    解决方法：
+        需要在服务器上安装ipgw进行连接。
+    具体步骤：
+        1、下载ipgw，下载地址：https://github.com/neucn/ipgw/releases/latest/download/ipgw-linux-amd64.zip
+        2、将压缩包上传到服务器上（用filezilla），cd到zip文件目录，然后用命令unzip ipgw-linux-amd64.zip进行解压，得到ipgw文件
+        3、cd到ipgw文件目录，对ipgw文件进行赋权chmod +x ./ipgw
+        4、初始化：在ipgw文件目录，运行./ipgw config account add -u "学号" -p "密码" --default，保存 ipgw 账号 (密码将被加密存储)
+        5、之后进入之间cd到ipgw文件目录，然后运行./ipgw，就可以使用默认账号快速登录，
+            快速登出： ./ipgw logout
+            查看校园网信息，如套餐详情、使用记录、扣费记录等: ./ipgw info -a
+            检测校园网连接状况: ./ipgw test
+            更新工具: ./ipgw update
