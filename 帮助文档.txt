@@ -29,7 +29,7 @@
         添加新的解释器-->SSH-->选择现有-->选择现有的SSH服务器-->下一步
         -->内省完后下一步-->选择conda环境-->选择使用现有环境-->同步文件夹映射正确的远程路径。
 
-3、在启动终端时，无法直接使用conda命令，运行conda就报：conda: command not found。
+3、在用ssh启动远程服务器终端时，无法直接使用conda命令，运行conda就报：conda: command not found。
 
     解决方法：
         1. 检查环境变量配置
@@ -55,3 +55,15 @@
             
             保存后执行：
                 source ~/.bash_profile
+
+        3、想直接切换到常用的环境，而不是base
+            首先禁用 base 环境自动激活：
+                conda config --set auto_activate_base false
+
+            在.bashrc中添加自动激活zbc的命令：
+                nano ~/.bashrc
+            在文件末尾添加：
+                # 自动激活zbc环境
+                conda activate zbc
+            保存并退出（在nano中按Ctrl + X，然后按Y，最后按Enter）。保存后执行：
+                source ~/.bashrc
