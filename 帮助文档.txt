@@ -27,4 +27,31 @@
     具体步骤：
 
         添加新的解释器-->SSH-->选择现有-->选择现有的SSH服务器-->下一步
-        -->内省完后下一步-->选择conda环境-->选择使用现有环境-->同步文件夹映射正确的远程路径
+        -->内省完后下一步-->选择conda环境-->选择使用现有环境-->同步文件夹映射正确的远程路径。
+
+3、在启动终端时，无法直接使用conda命令，运行conda就报：conda: command not found。
+
+    解决方法：
+        1. 检查环境变量配置
+            在终端输入：echo $PATH | tr ':' '\n' | grep anaconda3。
+                如果没有输出，说明PATH变量中没有anaconda3的路径，我们手动添加。
+
+                编辑.bashrc文件：
+                    nano ~/.bashrc
+
+                在文件末尾添加以下内容：
+                    export PATH="/mnt/sde/zhangbc24/anaconda3/bin:$PATH"
+                保存并退出（在nano中按Ctrl + X，然后按Y，最后按Enter）。
+
+                然后执行：
+                    source ~/.bashrc
+        
+        2、检查.bash_profile配置
+            登录 shell（如通过 SSH 登录或打开新终端）通常读取.bash_profile而非.bashrc。确保.bash_profile中包含以下内容：
+                if [ -f ~/.bashrc ]; then
+                    . ~/.bashrc
+                fi
+            若没有，进行添加，保存并退出（在nano中按Ctrl + X，然后按Y，最后按Enter）。
+            
+            保存后执行：
+                source ~/.bash_profile
