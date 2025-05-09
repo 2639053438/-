@@ -11,3 +11,12 @@
             查看校园网信息，如套餐详情、使用记录、扣费记录等: ./ipgw info -a
             检测校园网连接状况: ./ipgw test
             更新工具: ./ipgw update
+
+2、pycharm在配置一个新的解释器，总是匹配不到对应的服务器项目。
+        想要达到的效果：'D:\OTTO\test\test.py' 上传到 '/mnt/sde/zhangbc24/OTTO/test/test.py'。
+        实际的效果：'D:\OTTO\test\test.py' 上传到 '/tmp/pycharm_project_543/test/test.py'
+    解决方法：
+        重新配置解释器，在配置的时候选择同步文件夹映射到服务器上正确的位置。
+    具体步骤：
+        添加新的解释器-->SSH-->选择现有-->选择现有的SSH服务器-->下一步
+        -->内省完后下一步-->选择conda环境-->选择使用现有环境-->同步文件夹映射正确的远程路径
