@@ -1,7 +1,11 @@
 1、在学校服务器上连不上网，上不了网。
+
     解决方法：
+
         需要在服务器上安装ipgw进行连接。
+
     具体步骤：
+
         1、下载ipgw，下载地址：https://github.com/neucn/ipgw/releases/latest/download/ipgw-linux-amd64.zip
         2、将压缩包上传到服务器上（用filezilla），cd到zip文件目录，然后用命令unzip ipgw-linux-amd64.zip进行解压，得到ipgw文件
         3、cd到ipgw文件目录，对ipgw文件进行赋权chmod +x ./ipgw
@@ -15,8 +19,12 @@
 2、pycharm在配置一个新的解释器，总是匹配不到对应的服务器项目。
         想要达到的效果：'D:\OTTO\test\test.py' 上传到 '/mnt/sde/zhangbc24/OTTO/test/test.py'。
         实际的效果：'D:\OTTO\test\test.py' 上传到 '/tmp/pycharm_project_543/test/test.py'
+
     解决方法：
+
         重新配置解释器，在配置的时候选择同步文件夹映射到服务器上正确的位置。
+
     具体步骤：
+
         添加新的解释器-->SSH-->选择现有-->选择现有的SSH服务器-->下一步
         -->内省完后下一步-->选择conda环境-->选择使用现有环境-->同步文件夹映射正确的远程路径
